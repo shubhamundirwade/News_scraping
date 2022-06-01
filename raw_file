@@ -1,0 +1,24 @@
+# Importing GoogleNews library
+from GoogleNews import GoogleNews
+
+# Set perios of today
+news = GoogleNews(period='1d')
+
+# Searching location wise and storing it into result variable
+news.search("India")
+result = news.result()
+
+# import Pandas library to save result file into dataframe
+import pandas as pd
+data = pd.DataFrame.from_dict(result)
+data.head()
+
+# result will give top 10 news
+data.shape
+
+# for better rusult
+for i in result:
+    print("Title:", i['title'])
+    print("News:", i['desc'])
+    print("Read Full News:",i['link'])
+    print('\n')
